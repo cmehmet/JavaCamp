@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import Kodlama.io.Devs.business.abstracts.ProgrammingLanguageService;
 import Kodlama.io.Devs.dataAccess.abstracts.ProgrammingLanguageRepository;
-import Kodlama.io.Devs.dataAccess.concretes.InMemoryProgrammingLanguageRepository;
 import Kodlama.io.Devs.entities.concretes.ProgrammingLanguage;
 
 @Service
@@ -35,6 +34,7 @@ public class ProgrammingLanguageManager implements ProgrammingLanguageService{
 		if (programmingLanguage.getName().equals("")) {
 			throw new Exception("Programlama dili boş geçilemez.");
 		}
+		
 		for (ProgrammingLanguage programmingLanguageItem : programmingLanguageRepository.getAll()) {
 			if(programmingLanguageItem.getName().equals(programmingLanguage.getName())) {
 				throw new Exception("Bu isimde bir kurs zaten mevcut.");
