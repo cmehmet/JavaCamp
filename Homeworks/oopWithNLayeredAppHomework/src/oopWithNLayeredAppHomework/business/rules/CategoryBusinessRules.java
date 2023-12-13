@@ -4,19 +4,14 @@ import oopWithNLayeredAppHomework.dataAccess.abstracts.ICategoryDal;
 import oopWithNLayeredAppHomework.entities.Category;
 
 public class CategoryBusinessRules {
-	public void isExists(Category category,ICategoryDal categoryDal) throws Exception {
-		boolean isExists = false;
+	public static void isExists(Category category,ICategoryDal categoryDal) throws Exception {		
 		
 		for (Category categoryItem : categoryDal.getAll()) {
 			if (category.getCategoryName().equals(categoryItem.getCategoryName())) {
-				isExists=true;
+				throw new Exception("Kategori zaten mevcut");
 			}
 		}
+
 		
-		if (isExists) {
-			throw new Exception("Kategori zaten mevcut");
-		}
-	}
-		
-		
+	}		
 }

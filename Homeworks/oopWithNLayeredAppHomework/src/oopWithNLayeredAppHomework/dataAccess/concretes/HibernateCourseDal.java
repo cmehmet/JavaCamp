@@ -7,10 +7,9 @@ import oopWithNLayeredAppHomework.dataAccess.abstracts.ICourseDal;
 import oopWithNLayeredAppHomework.entities.Course;
 
 public class HibernateCourseDal implements ICourseDal{
-	List<Course> courses;
+	List<Course> courses = new ArrayList<Course>();
 	
 	public HibernateCourseDal() {
-		courses = new ArrayList<Course>();
 		courses.add(new Course(1,"Java",100));
 		courses.add(new Course(2,"C#",100));
 		courses.add(new Course(3,"Python",95));
@@ -20,9 +19,8 @@ public class HibernateCourseDal implements ICourseDal{
 
 	@Override
 	public void add(Course course) {
-		// Hibernate codes
+		courses.add(course);
 		System.out.println("Hibernate : Kurs (" + course.getName() + ") veritabanına eklendi.");
-		
 	}
 
 	@Override
