@@ -1,6 +1,7 @@
 package oopWithNLayeredAppHomework.business.concretes;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import oopWithNLayeredAppHomework.business.abstracts.IEducatorService;
 import oopWithNLayeredAppHomework.core.logging.ILogger;
@@ -23,6 +24,11 @@ public class EducatorManager implements IEducatorService{
 		for(ILogger logger : loggers) {
 			logger.log(educator.getFirstName() + " " + educator.getLastName() + " - Eğitmen ekledi.");
 		}
+	}
+
+	@Override
+	public List<Educator> getAll() {
+		return educatorDal.getAll();
 	}
 	
 	

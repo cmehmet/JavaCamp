@@ -7,10 +7,9 @@ import oopWithNLayeredAppHomework.dataAccess.abstracts.ICategoryDal;
 import oopWithNLayeredAppHomework.entities.Category;
 
 public class JdbcCategoryDal implements ICategoryDal {
-	List<Category> categories;
+	List<Category> categories = new ArrayList<Category>();
 	
 	public JdbcCategoryDal() {
-		categories = new ArrayList<Category>();
 		categories.add(new Category(1,"Tümü"));
 		categories.add(new Category(2,"Programlama"));
 		categories.add(new Category(3,"Tasarım"));
@@ -20,8 +19,8 @@ public class JdbcCategoryDal implements ICategoryDal {
 	@Override
 	public void add(Category category) {
 		// database codes
+		categories.add(category);
 		System.out.println("JDBC : Kategori (" + category.getCategoryName() + ") Kategori ekledi.");
-		
 	}
 
 	@Override
